@@ -1,4 +1,4 @@
-name: Build plugin
+name: Build Plugin
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - "*" # Push events to matching any tag format, i.e. 1.0, 20.15.10
 
 env:
-  PLUGIN_NAME: ${{ github.event.repository.name }}
+  PLUGIN_NAME: task-completion-tracker
 
 jobs:
   build:
@@ -22,7 +22,6 @@ jobs:
       - name: Build
         id: build
         run: |
-          npm i && npm run build
           mkdir ${{ env.PLUGIN_NAME }}
           cp README.md package.json icon.png logseq-github.gif ${{ env.PLUGIN_NAME }}
           mv dist ${{ env.PLUGIN_NAME }}

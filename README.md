@@ -6,6 +6,8 @@ Logseq plugin for tracking when task was done.
 * Adds property "completed" to tasks upon checking
 * Useful for gathering weekly\monthly\whatever report
 
+![demo](demo.png)
+
 ## Report generation
 You can use this query:
 ```clojure

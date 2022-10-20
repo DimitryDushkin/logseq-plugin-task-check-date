@@ -11,17 +11,24 @@ function main() {
     if (!taskBlock) {
       return;
     }
+    
+    console.log(taskBlock)
+    const hasCompletedProperty = taskBlock.properties.completed;
 
     if (taskBlock.marker === 'DONE') {
+      if (hasCompletedProperty) {
+        return;
+      }
+  
       const userConfigs = await logseq.App.getUserConfigs();
       const preferredDateFormat = userConfigs.preferredDateFormat;
       const datePage = getDateForPage(new Date, preferredDateFormat)
+
       logseq.Editor.upsertBlockProperty(taskBlock.uuid, 'completed',  datePage);
     } else {
       logseq.Editor.removeBlockProperty(taskBlock.uuid, 'completed');
     }
-
-  })
+  });
 }
 
 logseq.ready(main).catch(console.error);

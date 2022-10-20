@@ -1,26 +1,30 @@
-## A Translator Sample
+# logseq-plugin-task-check-date
 
-This is sample that show you how to use float ui container to display custom content.
+Logseq plugin for tracking when task was done.
 
-### Demo
+## Features
+* Adds property "completed" to tasks upon checking
+* Useful for gathering weekly\monthly\whatever report
 
-![demo](./demo.gif)
+## Report generation
+You can use this query:
+```clojure
+ #+BEGIN_QUERY
+{
+    :title "Completed tasks between dates"
+    :query [
+        :find (pull ?b [*])
+        :in $ ?start ?end
+        :where
+            ([(= ?marker "DONE")])
+            [?b :block/properties ?properties]
+            [(get ?properties :completed) ?completed]
+            [(>= ?completed ?start)]
+            [(< ?completed ?end)]
+    ]
+    :inputs [:7d :today]
+}
+#+END_QUERY
+```
 
-### API
-
-[![npm version](https://badge.fury.io/js/%40logseq%2Flibs.svg)](https://badge.fury.io/js/%40logseq%2Flibs)
-
-##### Logseq.App
-
-- `onInputSelectionEnd: IUserHook<{ caret: any; end: number; point: { x: number; y: number }; start: number; text: string }, IUserOffHook>`
-
-### Running the Sample
-
-> 🏷 Minimal version of App [0.4.6](https://github.com/logseq/logseq/releases/tag/0.4.6) !
-
-- `yarn && yarn build` in terminal to install dependencies.
-- `Load unpacked plugin` in Logseq Desktop client.
-
-### License
-
-MIT
+You can set any dates in `:inputs`, i.e. `:inputs [:10d :-10d]` means between "today - 10 days" and "today + 10 days".

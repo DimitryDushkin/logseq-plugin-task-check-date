@@ -1,6 +1,6 @@
-# logseq-plugin-task-check-date
+# Task complete
 
-Logseq plugin for tracking when task was done.
+Logseq plugin for tracking when task was done. Look for "Task Completion" in the Marketplace.
 
 ## Features
 * Adds property "completed" to tasks upon checking

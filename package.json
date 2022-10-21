@@ -5,8 +5,8 @@
   "author": "Dmitrii Dushkin (https://github.com/DimitryDushkin)",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel ./index.ts",
-    "build": "rm -rf dist/* && parcel build"
+    "dev": "parcel watch",
+    "build": "parcel build"
   },
   "devDependencies": {
     "parcel": "^2.0.0"

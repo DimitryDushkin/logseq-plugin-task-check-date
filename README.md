@@ -30,3 +30,8 @@ You can use this query:
 ```
 
 You can set any dates in `:inputs`, i.e. `:inputs [:10d :-10d]` means between "today - 10 days" and "today + 10 days".
+
+## How to release
+1. `yarn build`
+2. `git commit -am "up build" && git push`
+3. Make release in Github.

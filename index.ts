@@ -12,7 +12,6 @@ function main() {
       return;
     }
     
-    console.log(taskBlock)
     const hasCompletedProperty = taskBlock.properties.completed;
 
     if (taskBlock.marker === 'DONE') {

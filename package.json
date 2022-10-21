@@ -5,17 +5,24 @@
   "author": "Dmitrii Dushkin (https://github.com/DimitryDushkin)",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel ./index.html",
-    "build": "rm -rf dist/* && parcel build --public-url . --no-source-maps index.html"
+    "dev": "parcel ./index.ts",
+    "build": "rm -rf dist/* && parcel build"
   },
   "devDependencies": {
     "parcel": "^2.0.0"
   },
   "logseq": {
-    "main": "dist/index.html",
     "title": "Task completion",
-    "id": "_sppzszglx"
+    "id": "_sppzszglx",
+    "icon": "icon.png"
   },
+  "main": "dist/index.js",
+  "source": "index.ts",
+  "targets": {
+    "main": {
+       "includeNodeModules": true
+    }
+ },
   "packageManager": "yarn@3.2.4",
   "dependencies": {
     "@logseq/libs": "^0.0.10",

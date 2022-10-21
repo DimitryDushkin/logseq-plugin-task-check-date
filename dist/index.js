@@ -36,7 +36,7 @@ if (parcelRequire == null) {
 
   $parcel$global["parcelRequire4e23"] = parcelRequire;
 }
-parcelRequire.register("acyZD", function(module, exports) {
+parcelRequire.register("kFVTC", function(module, exports) {
 /*! For license information please see lsplugin.user.js.LICENSE.txt */ !function(e, t) {
     module.exports = t();
 }(self, ()=>(()=>{
@@ -3420,19 +3420,19 @@ parcelRequire.register("acyZD", function(module, exports) {
 
 });
 
-parcelRequire("acyZD");
-var $a39fab71d1a3f418$var$y = function(y) {
+parcelRequire("kFVTC");
+var $51bf925891d58acc$var$y = function(y) {
     return y + (y > 0 ? [
         "th",
         "st",
         "nd",
         "rd"
     ][y > 3 && y < 21 || y % 10 > 3 ? 0 : y % 10] : "");
-}, $a39fab71d1a3f418$export$e2b71c32630c1aac = function(e, n) {
+}, $51bf925891d58acc$export$e2b71c32630c1aac = function(e, n) {
     var t = e.getFullYear(), r = e.toString().substring(4, 7), u = e.getMonth() + 1, M = e.getDate(), d = e.toLocaleString("default", {
         month: "long"
     });
-    if ("MMM do yyyy" === n) return "[[" + r + " " + $a39fab71d1a3f418$var$y(M) + ", " + t + "]]";
+    if ("MMM do yyyy" === n) return "[[" + r + " " + $51bf925891d58acc$var$y(M) + ", " + t + "]]";
     if (n.includes("yyyy") && (n.includes("MM") || n.includes("MMM")) && n.includes("dd") && (n.includes("EEEE") || n.includes("EEE") || n.includes("E"))) {
         var i = [
             "Sunday",
@@ -3458,7 +3458,7 @@ var $a39fab71d1a3f418$var$y = function(y) {
     if ("do MMMM yyyy" === n || "MMMM do, yyyy" === n) {
         var s = {
             yyyy: t,
-            do: $a39fab71d1a3f418$var$y(M),
+            do: $51bf925891d58acc$var$y(M),
             MMMM: d
         };
         return "[[" + n.replace(/yyyy|do|MMMM/gi, function(y) {
@@ -3475,12 +3475,12 @@ var $a39fab71d1a3f418$var$y = function(y) {
             return l[y];
         }) + "]]";
     }
-    return "[[" + r + " " + $a39fab71d1a3f418$var$y(M) + ", " + t + "]]";
-}, $a39fab71d1a3f418$export$8637516d21336ea9 = function(e, n) {
+    return "[[" + r + " " + $51bf925891d58acc$var$y(M) + ", " + t + "]]";
+}, $51bf925891d58acc$export$8637516d21336ea9 = function(e, n) {
     var t = e.getFullYear(), r = e.toString().substring(4, 7), u = e.getMonth() + 1, M = e.getDate(), d = e.toLocaleString("default", {
         month: "long"
     });
-    if ("MMM do yyyy" === n) return r + " " + $a39fab71d1a3f418$var$y(M) + ", " + t;
+    if ("MMM do yyyy" === n) return r + " " + $51bf925891d58acc$var$y(M) + ", " + t;
     if (n.includes("yyyy") && n.includes("MM") && n.includes("dd") && (n.includes("EEEE") || n.includes("EEE") || n.includes("E"))) {
         var i = [
             "Sunday",
@@ -3505,7 +3505,7 @@ var $a39fab71d1a3f418$var$y = function(y) {
     if ("do MMMM yyyy" === n || "MMMM do, yyyy" === n) {
         var s = {
             yyyy: t,
-            do: $a39fab71d1a3f418$var$y(M),
+            do: $51bf925891d58acc$var$y(M),
             MMMM: d
         };
         return "" + n.replace(/yyyy|do|MMMM/gi, function(y) {
@@ -3524,8 +3524,8 @@ var $a39fab71d1a3f418$var$y = function(y) {
     }
     return "MMMM do, yyyy" === n ? e.toLocaleString("default", {
         month: "long"
-    }) + " " + $a39fab71d1a3f418$var$y(M) + ", " + t : "do MMM yyyy" === n ? $a39fab71d1a3f418$var$y(M) + " " + r + " " + t : r + " " + $a39fab71d1a3f418$var$y(M) + ", " + t;
-}, $a39fab71d1a3f418$export$9a907ad46f33f892 = function(y) {
+    }) + " " + $51bf925891d58acc$var$y(M) + ", " + t : "do MMM yyyy" === n ? $51bf925891d58acc$var$y(M) + " " + r + " " + t : r + " " + $51bf925891d58acc$var$y(M) + ", " + t;
+}, $51bf925891d58acc$export$9a907ad46f33f892 = function(y) {
     return [
         "Sunday",
         "Monday",
@@ -3535,17 +3535,17 @@ var $a39fab71d1a3f418$var$y = function(y) {
         "Friday",
         "Saturday"
     ][y.getDay()];
-}, $a39fab71d1a3f418$export$a936be8b93495fbf = function(y) {
-    return y.getFullYear() + "-" + (y.getMonth() + 1) + "-" + y.getDate() + " " + $a39fab71d1a3f418$export$9a907ad46f33f892(y).substring(0, 3);
-}, $a39fab71d1a3f418$export$f98eabfcd40ac5a7 = function(y) {
-    return y.getFullYear() + "-" + (y.getMonth() + 1) + "-" + y.getDate() + " " + $a39fab71d1a3f418$export$9a907ad46f33f892(y).substring(0, 3) + " " + y.toTimeString().substring(0, 5);
-}, $a39fab71d1a3f418$export$2d783977762d002 = function(y) {
+}, $51bf925891d58acc$export$a936be8b93495fbf = function(y) {
+    return y.getFullYear() + "-" + (y.getMonth() + 1) + "-" + y.getDate() + " " + $51bf925891d58acc$export$9a907ad46f33f892(y).substring(0, 3);
+}, $51bf925891d58acc$export$f98eabfcd40ac5a7 = function(y) {
+    return y.getFullYear() + "-" + (y.getMonth() + 1) + "-" + y.getDate() + " " + $51bf925891d58acc$export$9a907ad46f33f892(y).substring(0, 3) + " " + y.toTimeString().substring(0, 5);
+}, $51bf925891d58acc$export$2d783977762d002 = function(y) {
     return [
         y.getFullYear(),
         ("0" + (y.getMonth() + 1)).slice(-2),
         ("0" + y.getDate()).slice(-2)
     ].join("-") + "T" + y.toTimeString().substring(0, 5);
-}, $a39fab71d1a3f418$export$c17574aee125fc6f = function(y) {
+}, $51bf925891d58acc$export$c17574aee125fc6f = function(y) {
     return [
         y.getFullYear(),
         ("0" + (y.getMonth() + 1)).slice(-2),
@@ -3554,26 +3554,25 @@ var $a39fab71d1a3f418$var$y = function(y) {
 };
 
 
-const $7ab9bdf24f4d1255$var$TASK_MARKERS = new Set([
+const $dd27acfa38609814$var$TASK_MARKERS = new Set([
     "DONE",
     "NOW",
     "LATER"
 ]);
-function $7ab9bdf24f4d1255$var$main() {
+function $dd27acfa38609814$var$main() {
     logseq.DB.onChanged(async (e)=>{
-        const taskBlock = e.blocks.find((block)=>$7ab9bdf24f4d1255$var$TASK_MARKERS.has(block.marker));
+        const taskBlock = e.blocks.find((block)=>$dd27acfa38609814$var$TASK_MARKERS.has(block.marker));
         if (!taskBlock) return;
         const hasCompletedProperty = taskBlock.properties.completed;
         if (taskBlock.marker === "DONE") {
             if (hasCompletedProperty) return;
             const userConfigs = await logseq.App.getUserConfigs();
             const preferredDateFormat = userConfigs.preferredDateFormat;
-            const datePage = (0, $a39fab71d1a3f418$export$e2b71c32630c1aac)(new Date, preferredDateFormat);
+            const datePage = (0, $51bf925891d58acc$export$e2b71c32630c1aac)(new Date, preferredDateFormat);
             logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", datePage);
         } else logseq.Editor.removeBlockProperty(taskBlock.uuid, "completed");
     });
 }
-logseq.ready($7ab9bdf24f4d1255$var$main).catch(console.error);
+logseq.ready($dd27acfa38609814$var$main).catch(console.error);
 
 
-//# sourceMappingURL=index.js.map

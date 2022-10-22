@@ -1,6 +1,8 @@
-# logseq-plugin-task-check-date
+# [Logseq](https://logseq.com) task completion tracker plugin
 
-Logseq plugin for tracking when task was done. Useful for gathering weekly\monthly\whatever report.
+* Logseq plugin for tracking when task was done. 
+* Useful for gathering weekly\monthly\whatever report.
+* Look for "Task Completion" in the Marketplace.
 
 ## Features
 * Adds property "completed" to tasks upon checking

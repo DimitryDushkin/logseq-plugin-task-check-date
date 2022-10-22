@@ -8,7 +8,7 @@
 * Adds property "completed" to tasks upon checking
 * Adds slash command `Completed tasks for the past week` which queries blocks with `completed` property equal one of 7 past days.
 
-![demo](demo.png)
+![demo](demo2.png)
 
 ## Note
 Query looks a bit ugly since I didn't find any other option to query block's property dates. Looks like it's not possible for now. Opened a ticket — https://github.com/logseq/logseq/issues/7083

@@ -1,35 +1,15 @@
 # logseq-plugin-task-check-date
 
-Logseq plugin for tracking when task was done.
+Logseq plugin for tracking when task was done. Useful for gathering weekly\monthly\whatever report.
 
 ## Features
 * Adds property "completed" to tasks upon checking
-* Useful for gathering weekly\monthly\whatever report
+* Adds slash command `Completed tasks for the past week` which queries blocks with `completed` property equal one of 7 past days.
 
 ![demo](demo.png)
 
-## Report generation
-You can use this query:
-```clojure
- #+BEGIN_QUERY
-{
-    :title "Completed tasks between dates"
-    :query [
-        :find (pull ?b [*])
-        :in $ ?start ?end
-        :where
-            ([(= ?marker "DONE")])
-            [?b :block/properties ?properties]
-            [(get ?properties :completed) ?completed]
-            [(>= ?completed ?start)]
-            [(< ?completed ?end)]
-    ]
-    :inputs [:7d :today]
-}
-#+END_QUERY
-```
-
-You can set any dates in `:inputs`, i.e. `:inputs [:10d :-10d]` means between "today - 10 days" and "today + 10 days".
+## Note
+Query looks a bit ugly since I didn't find any other option to query block's property dates. Looks like it's not possible for now. Opened a ticket — https://github.com/logseq/logseq/issues/7083
 
 ## How to release
 1. `yarn build`

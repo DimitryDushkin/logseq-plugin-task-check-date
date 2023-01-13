@@ -24,6 +24,9 @@ function main() {
 
       logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", datePage);
     } else {
+      if (!hasCompletedProperty) {
+        return;
+      }
       logseq.Editor.removeBlockProperty(taskBlock.uuid, "completed");
     }
   });

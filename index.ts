@@ -2,7 +2,7 @@ import "@logseq/libs";
 import dayjs from "dayjs";
 import { getDateForPage } from "logseq-dateutils";
 
-const TASK_MARKERS = new Set(["DONE", "NOW", "LATER"]);
+const TASK_MARKERS = new Set(["DONE", "NOW", "LATER", "DOING", "TODO", "WAITING"]);
 
 function main() {
   logseq.DB.onChanged(async (e) => {
@@ -61,7 +61,7 @@ function main() {
         return;
       }
       await logseq.Editor.insertBlock(blockHeader.uuid, query);
-      await logseq.Editor.insertBlock(blockHeader.uuid, '---', {sibling: true})
+      await logseq.Editor.insertBlock(blockHeader.uuid, '---', { sibling: true })
     }
   );
 }

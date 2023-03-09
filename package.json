@@ -26,6 +26,7 @@
   "dependencies": {
     "@logseq/libs": "^0.0.10",
     "dayjs": "^1.11.6",
-    "logseq-dateutils": "^0.0.22"
+    "logseq-dateutils": "^0.0.22",
+    "moment": "^2.29.4"
   }
 }

@@ -1,6 +1,5 @@
 import "@logseq/libs";
-import dayjs from "dayjs";
-import { getDateForPage } from "logseq-dateutils";
+import * as moment from 'moment';
 
 const TASK_MARKERS = new Set(["DONE", "NOW", "LATER", "DOING", "TODO", "WAITING"]);
 
@@ -18,9 +17,7 @@ function main() {
         return;
       }
 
-      const userConfigs = await logseq.App.getUserConfigs();
-      const preferredDateFormat = userConfigs.preferredDateFormat;
-      const datePage = getDateForPage(new Date(), preferredDateFormat);
+      const datePage = moment().format('YYYYMMDD');
 
       logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", datePage);
     } else {
@@ -39,18 +36,13 @@ function main() {
         return;
       }
 
-      const userConfigs = await logseq.App.getUserConfigs();
-      const preferredDateFormat = userConfigs.preferredDateFormat;
-      const today = dayjs(new Date());
+      const today = moment();
 
       let query = "{{query (or ";
       const days: string[] = [];
       for (let i = 0; i < 7; i++) {
         days.push(
-          `(property completed ${getDateForPage(
-            today.subtract(i + 1, "day").toDate(),
-            preferredDateFormat
-          )})`
+          `(property completed ${today.clone().subtract(i + 1, "day").format('YYYYMMDD')})`
         );
       }
       query += days.join(" ");

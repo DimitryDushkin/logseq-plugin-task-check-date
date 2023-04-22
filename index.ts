@@ -19,7 +19,8 @@ function main() {
       }
 
       const userConfigs = await logseq.App.getUserConfigs();
-      const preferredDateFormat = userConfigs.preferredDateFormat;
+      let preferredDateFormat = userConfigs.preferredDateFormat;
+      preferredDateFormat = preferredDateFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
       const datePage = getDateForPage(new Date(), preferredDateFormat);
 
       logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", datePage);
@@ -40,7 +41,8 @@ function main() {
       }
 
       const userConfigs = await logseq.App.getUserConfigs();
-      const preferredDateFormat = userConfigs.preferredDateFormat;
+      let preferredDateFormat = userConfigs.preferredDateFormat;
+      preferredDateFormat = preferredDateFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
       const today = dayjs(new Date());
 
       let query = "{{query (or ";

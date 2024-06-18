@@ -6,3 +6,4 @@
 !.yarn/sdks
 !.yarn/versions
 .parcel-cache
+node_modules

@@ -7,3 +7,4 @@
 !.yarn/versions
 .parcel-cache
 node_modules
+.devcontainer

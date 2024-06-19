@@ -2,15 +2,12 @@
   "name": "logseq-plugin-task-check-date",
   "version": "0.0.10",
   "description": "Plugin enables adding 'completed' property to task upon checking",
-  "targets": {
-    "main": false
-  },
-  "default": "dist/index.html",
   "author": "Dmitrii Dushkin (https://github.com/DimitryDushkin)",
   "license": "MIT",
+  "source": "src/index.html",
   "scripts": {
     "dev": "parcel ./src/index.html --public-url ./",
-    "build": "rm -rf dist/* && parcel build --public-url . --no-source-maps src/index.html"
+    "build": "rm -rf dist/* && parcel build --public-url . --no-source-maps"
   },
   "devDependencies": {
     "@parcel/packager-ts": "2.12.0",

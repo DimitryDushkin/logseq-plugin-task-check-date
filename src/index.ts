@@ -5,10 +5,17 @@ import { getDateForPage } from "logseq-dateutils";
 
 const SETTINGS_SCHEMA: SettingSchemaDesc[] = [
   {
-    default: "DONE, NOW, LATER, DOING, TODO, WAITING",
+    default: "DONE, NOW, LATER, DOING, TODO, WAITING, CANCELLED",
     description: "Task markers to track when changing the status of tasks.",
     title: "Task markers",
     key: "taskMarkers",
+    type: "string",
+  },
+  {
+    default: "DONE, CANCELLED",
+    description: "Task markers to add completion date.",
+    title: "Task markers 'complete'",
+    key: "taskMarkersComplete",
     type: "string",
   },
   {
@@ -66,9 +73,13 @@ function main() {
   let TASK_MARKERS = new Set(
     splitTaskMarkers(logseq.settings?.taskMarkers as string)
   );
-
+  let TASK_MARKERS_COMPLETE = new Set(
+     splitTaskMarkers(logseq.settings?.taskMarkersComplete as string)
+  );
+  
   logseq.onSettingsChanged((_previousSettings, settings) => {
     TASK_MARKERS = new Set(splitTaskMarkers(settings?.taskMarkers as string));
+    TASK_MARKERS_COMPLETE = new Set(splitTaskMarkers(settings?.taskMarkersComplete as string));
   });
 
   logseq.DB.onChanged(async (event) => {
@@ -85,7 +96,7 @@ function main() {
     const hasTimeProperty =
       taskBlock.properties?.[logseq.settings?.completedTimeProperty as string];
 
-    if (taskBlock.marker === "DONE") {
+    if (TASK_MARKERS_COMPLETE.has(taskBlock.marker)) {
       if (!hasCompletedProperty && logseq.settings?.includeDate) {
         const userConfigs = await logseq.App.getUserConfigs();
         let preferredDateFormat = userConfigs.preferredDateFormat;

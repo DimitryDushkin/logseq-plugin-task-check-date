@@ -63,12 +63,12 @@ const splitTaskMarkers = (taskMarkers: string | undefined) => {
 logseq.useSettingsSchema(SETTINGS_SCHEMA);
 
 function main() {
-  let SETTINGS = logseq.settings;
-  let TASK_MARKERS = new Set(splitTaskMarkers(SETTINGS?.taskMarkers as string));
+  let TASK_MARKERS = new Set(
+    splitTaskMarkers(logseq.settings?.taskMarkers as string)
+  );
 
   logseq.onSettingsChanged((_previousSettings, settings) => {
-    SETTINGS = settings;
-    TASK_MARKERS = new Set(splitTaskMarkers(SETTINGS?.taskMarkers as string));
+    TASK_MARKERS = new Set(splitTaskMarkers(settings?.taskMarkers as string));
   });
 
   logseq.DB.onChanged(async (event) => {
@@ -80,11 +80,13 @@ function main() {
       return;
     }
 
-    const hasCompletedProperty = taskBlock.properties?.completed;
-    const hasTimeProperty = taskBlock.properties?.time;
+    const hasCompletedProperty =
+      taskBlock.properties?.[logseq.settings?.completedDateProperty as string];
+    const hasTimeProperty =
+      taskBlock.properties?.[logseq.settings?.completedTimeProperty as string];
 
     if (taskBlock.marker === "DONE") {
-      if (!hasCompletedProperty && SETTINGS?.includeDate) {
+      if (!hasCompletedProperty && logseq.settings?.includeDate) {
         const userConfigs = await logseq.App.getUserConfigs();
         let preferredDateFormat = userConfigs.preferredDateFormat;
         preferredDateFormat = preferredDateFormat.replace(/E{1,3}/, "EEE"); //handle same E, EE, or EEE bug
@@ -92,16 +94,16 @@ function main() {
 
         logseq.Editor.upsertBlockProperty(
           taskBlock.uuid,
-          SETTINGS?.completedDateProperty as string,
+          logseq.settings?.completedDateProperty as string,
           datePage
         );
       }
 
-      if (!hasTimeProperty && SETTINGS?.includeTime) {
-        const timeNow = dayjs().format(SETTINGS?.timeFormat as string);
+      if (!hasTimeProperty && logseq.settings?.includeTime) {
+        const timeNow = dayjs().format(logseq.settings?.timeFormat as string);
         logseq.Editor.upsertBlockProperty(
           taskBlock.uuid,
-          SETTINGS?.completedTimeProperty as string,
+          logseq.settings?.completedTimeProperty as string,
           timeNow
         );
       }
@@ -109,14 +111,14 @@ function main() {
       if (hasCompletedProperty) {
         logseq.Editor.removeBlockProperty(
           taskBlock.uuid,
-          SETTINGS?.completedDateProperty as string
+          logseq.settings?.completedDateProperty as string
         );
       }
 
       if (hasTimeProperty) {
         logseq.Editor.removeBlockProperty(
           taskBlock.uuid,
-          SETTINGS?.completedTimeProperty as string
+          logseq.settings?.completedTimeProperty as string
         );
       }
     }

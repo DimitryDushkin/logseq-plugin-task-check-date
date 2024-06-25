@@ -1,6 +1,6 @@
 {
   "name": "logseq-plugin-task-check-date",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Plugin enables adding 'completed' property to task upon checking",
   "author": "Dmitrii Dushkin (https://github.com/DimitryDushkin)",
   "license": "MIT",

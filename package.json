@@ -7,7 +7,7 @@
   "source": "src/index.html",
   "scripts": {
     "dev": "parcel --public-url .",
-    "build": "rm -rf dist/* && parcel build --public-url . --no-source-maps"
+    "build": "rm -rf dist/* && sleep 1 && parcel build --public-url . --no-source-maps"
   },
   "devDependencies": {
     "@parcel/packager-ts": "2.12.0",

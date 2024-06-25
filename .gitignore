@@ -8,3 +8,4 @@
 .parcel-cache
 node_modules
 .devcontainer
+.DS_Store
